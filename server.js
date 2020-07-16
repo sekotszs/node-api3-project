@@ -1,17 +1,21 @@
 const express = require("express");
 const helmet = require("helmet");
 const userRouter = require("./users/userRouter");
-const morgan = require("morgan");
+// const morgan = require("morgan");
 const server = express();
+const cors= require("cors");
+
+
 
 server.use(express.json());
 server.use("/api/users", userRouter);
 server.use(helmet());
 // server.use(morgan("dev"));
 server.use(logger)
+server.use(cors());
 
 server.get("/", (req, res) => {
-  res.send(`<h2>Let's write some middleware!</h2>`);
+  res.send(`Node-Api3-Project: Zoe Stokes`);
 });
 
 //custom middleware
